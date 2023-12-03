@@ -1,15 +1,8 @@
 "use client";
 
-import { TableContainer, Thead, Tr, Th, Tbody, TableCaption, Td, Tfoot, Table, Box, Center } from "@chakra-ui/react"
-import BodyData from "./body_data";
-import React from "react";
+import { TableContainer, Thead, Tr, Th, Td, Tbody, Table } from "@chakra-ui/react"
 
-export default function TableData() {
-  const data = [];
-  for(let i = 0; i < 100; i++) {
-    data.push(i.toString())
-  }
-
+export default function TableData(props: any) {
 	return (
 		<>
       <TableContainer overflowY={ 'auto' } maxHeight={ '300px' } minHeight={ 'calc(60vh)' }>
@@ -22,13 +15,17 @@ export default function TableData() {
 						</Tr>
 					</Thead>
           <Tbody>
-            <BodyData nama_barang={ 'value' } satuan={ '1' + 'value' } harga={ '3000' + 'value' }/>
-            {/* { data.map((value) => {
+            { props.data.map(({nama_barang='', satuan='', harga=''}, index: number) => {
               return (
                 <>
+                  <Tr key={ index }>
+                    <Td>{ nama_barang }</Td>
+                    <Td>{ satuan }</Td>
+                    <Td isNumeric>{ harga }</Td>
+                  </Tr>
                 </>
               )
-            }) } */}
+            }) }
           </Tbody>
         </Table>
       </TableContainer>

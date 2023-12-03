@@ -12,7 +12,12 @@ export default function Contents() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/daftar_barang')
+    fetch('api/daftar_barang', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
     .then((result) => result.json())
     .then((result) => {
       setData(result);

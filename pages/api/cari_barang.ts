@@ -22,3 +22,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
   }
 }
+
+// mongodb+srv://warung_berkah:XNFp18wRgG9WnScW@cluster0.tfjyrhk.mongodb.net/?retryWrites=true&w=majority

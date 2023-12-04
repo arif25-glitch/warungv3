@@ -69,19 +69,19 @@ export default function AddStuffs() {
               boxShadow={'lg'}
               p={8}>
               <Stack spacing={4}>
-                <FormControl id="nama_baranng">
+                <FormControl id="nama_baranng" isRequired>
                   <FormLabel>Nama Barang</FormLabel>
                   <Input type="text" value={ namaBarang } onChange={ handleNamaBarang }/>
                 </FormControl>
-                <FormControl id="satuan">
+                <FormControl id="satuan" isRequired>
                   <FormLabel>Satuan</FormLabel>
                   <Input type="text" value={ satuan } onChange={ handleSatuan }/>
                 </FormControl>
-                <FormControl id="kategori">
+                <FormControl id="kategori" isRequired>
                   <FormLabel>Kategori</FormLabel>
                   <Input type="text" value={ kategori } onChange={ handleKategori }/>
                 </FormControl>
-                <FormControl id="harga">
+                <FormControl id="harga" isRequired>
                   <FormLabel>Harga</FormLabel>
                   <Input type="text" value={ harga } onChange={ handleHarga }/>
                 </FormControl>
@@ -93,7 +93,12 @@ export default function AddStuffs() {
             <Button colorScheme='blue' mr={3} onClick={ onClose }>
               Close
             </Button>
-            <Button variant='ghost' onClick={ addFetch } id='submit_button'>OK</Button>
+            <Button variant='ghost' onClick={ () => {
+              if ((namaBarang !== '') && (satuan !== '') && (kategori !== '') && (harga !== '')) {
+                addFetch();
+                onClose();
+              }
+            } } id='submit_button'>OK</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

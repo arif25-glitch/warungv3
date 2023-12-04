@@ -14,6 +14,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  useToast,
 } from '@chakra-ui/react'
 
 import { useDisclosure } from '@chakra-ui/react';
@@ -26,6 +27,8 @@ export default function AddStuffs() {
   const [satuan, setSatuan] = useState('');
   const [kategori, setKategori] = useState('');
   const [harga, setHarga] = useState('');
+
+  const toast = useToast();
 
   const handleNamaBarang = (event: any) => setNamaBarang(event.target.value)
   const handleSatuan = (event: any) => setSatuan(event.target.value)
@@ -97,6 +100,21 @@ export default function AddStuffs() {
               if ((namaBarang !== '') && (satuan !== '') && (kategori !== '') && (harga !== '')) {
                 addFetch();
                 onClose();
+                toast({
+                  title: "Berhasil",
+                  description: "Data Berhasil Diisi",
+                  status: 'success',
+                  duration: 5000,
+                  isClosable: true,
+                })
+              } else {
+                toast({
+                  title: 'Form Error',
+                  description: 'Mohon Isi Form Dengan Lengkap',
+                  status: 'error',
+                  duration: 5000,
+                  isClosable: true,
+                });
               }
             } } id='submit_button'>OK</Button>
           </ModalFooter>

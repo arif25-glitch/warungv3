@@ -1,22 +1,24 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import clientPromise from "../../lib/mongodb";
 
-import { NextApiRequest, NextApiResponse } from "next";
-
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'POST') {
+  if(req.method === 'GET') {
     try {
       const client = await clientPromise;
       const db = client.db('warung');
       
-      await db.collection('inventory').insertOne(req.body);
+      const { search } = req.query;
+      const result = await db.collection('inventory').find({ $text: {$search: search } }).toArray();
 
       res.status(200).json({
         status: 'success',
+        data: result,
       })
+
     } catch(err) {
       res.status(500).json({
-        status: 'failed',
+        message: 'server error',
       })
     }
   }
-};
+}

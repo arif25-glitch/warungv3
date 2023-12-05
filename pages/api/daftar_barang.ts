@@ -9,13 +9,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const db = client.db('warung');
   
       const result = await db.collection('inventory').find({}).toArray();
-  
+      
       res.status(200).json(result);
+
     } catch (err) {
       res.status(500).json({
         message: 'server error',
       });
-      console.error(err);
     }
   }
 };

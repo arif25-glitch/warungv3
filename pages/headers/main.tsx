@@ -2,10 +2,10 @@
 
 import Navbar from "./navbar";
 
-export default function Headers() {
+export default function Headers(props: any) {
   return (
     <>
-      <Navbar/>
+      <Navbar dataCallback={ props.dataCallback }/>
     </>
   )
 }

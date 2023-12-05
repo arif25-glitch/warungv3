@@ -21,7 +21,7 @@ import { useDisclosure } from '@chakra-ui/react';
 import { useColorModeValue } from '@chakra-ui/react';
 import { useState } from 'react';
 
-export default function AddStuffs() {
+export default function AddStuffs(props: any) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [namaBarang, setNamaBarang] = useState('');
   const [satuan, setSatuan] = useState('');
@@ -51,7 +51,7 @@ export default function AddStuffs() {
     .then((result) => result.json())
     .then(({ message='' }) => {
       if (message === 'success') {
-        onClose();
+        console.log('');
       }
     });
   }
@@ -98,6 +98,7 @@ export default function AddStuffs() {
             </Button>
             <Button variant='ghost' onClick={ () => {
               if ((namaBarang !== '') && (satuan !== '') && (kategori !== '') && (harga !== '')) {
+                props.dataCallback();
                 addFetch();
                 onClose();
                 toast({

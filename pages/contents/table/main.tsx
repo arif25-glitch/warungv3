@@ -1,10 +1,18 @@
 "use client";
 
-import { TableContainer, Thead, Tr, Th, Td, Tbody, Table } from "@chakra-ui/react"
+import { TableContainer, Thead, Tr, Th, Td, Tbody, Table, Input } from "@chakra-ui/react"
+import { useState } from "react";
+
+const TableList = (props: any) => {
+  const filteredData = props.data.filter(props.filterFunction);
+}
 
 export default function TableData(props: any) {
+  const [searchValue, setSearchValue] = useState("");
+
 	return (
 		<>
+			<Input placeholder='Cari Barang' type='text' value={ props.searchValue } onChange={ (event) => setSearchValue(event.target.value) }/>
       <TableContainer overflowY={ 'auto' } maxHeight={ '300px' } minHeight={ 'calc(60vh)' }>
         <Table variant={ 'simple' }>
           <Thead position={ 'sticky' } top={ '0px' } bgColor={ '#161A30' }>

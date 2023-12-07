@@ -11,8 +11,7 @@ export default function Contents(props: any) {
     <>
       <Box p={ '5' }>
         <Box m={ '5' } marginBottom={ '10' }>
-          <SearchBar searchString={ props.searchString } 
-              setSearchString={ props.setSearchString } data={ props.data } setData={ props.setData }/>
+          <SearchBar data={ props.data } setData={ props.setData }/>
         </Box>
         <TableData data={ props.data }/>
       </Box>

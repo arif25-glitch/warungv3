@@ -2,29 +2,27 @@
 
 import { Input } from '@chakra-ui/react';
 
+import { useCallback, useState } from 'react';
+
+// const TableList = (props: any) => {
+//   const filteredData = props.data.filter(props.filterFunction);
+
+//   return (
+
+//   )
+// }
+
 export default function SearchBar(props: any) {
-  const handleSearchString = (event: any) => props.setSearchString(event.target.value);
+  const [searchValue, setSearchValue] = useState("");
 
-  try {
-    const filteredData = props.data.filter((item: any) => {
-      return item.nama_barang.toLowerCase().startsWith(props.searchString);
-    });
-  
-    console.log(filteredData);
-    // props.setData(filteredData);
-  } catch(err) {
-    console.log(err);
-  }
+  const filterFn = useCallback((item: any) => item.nama_barang.toLowerCase().includes(searchValue.toLowerCase()), [searchValue]);
 
-  // if(props.searchString !== '') {
-  //   props.setData(props.data.filter((item: any) => {
-  //     item.nama_barang.toLowerCase().startsWith(props.searchString);
-  //   }));
-  // }
+  const filteredData = props.data.filter(filterFn);
+
+  props.setData(filteredData);
 
 	return (
 		<>
-			<Input placeholder='Cari Barang' type='text' value={ props.searchString } onChange={ handleSearchString }/>
 		</>
 	)
 }

@@ -98,8 +98,9 @@ export default function AddStuffs(props: any) {
             </Button>
             <Button variant='ghost' onClick={ () => {
               if ((namaBarang !== '') && (satuan !== '') && (kategori !== '') && (harga !== '')) {
-                props.dataCallback();
                 addFetch();
+                props.dataCallback();
+                props.dataCallback();
                 onClose();
                 toast({
                   title: "Berhasil",

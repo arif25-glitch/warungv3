@@ -7,13 +7,12 @@ import { Box } from "@chakra-ui/react";
 // import React from "react";
 
 export default function Contents(props: any) {
-  // const [search, setSearch] = React.useState([]);
-
   return (
     <>
       <Box p={ '5' }>
         <Box m={ '5' } marginBottom={ '10' }>
-          <SearchBar/>
+          <SearchBar searchString={ props.searchString } 
+              setSearchString={ props.setSearchString } data={ props.data } setData={ props.setData }/>
         </Box>
         <TableData data={ props.data }/>
       </Box>

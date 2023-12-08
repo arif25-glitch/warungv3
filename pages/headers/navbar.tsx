@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react'
 
 import AddStuffs from '../contents/add_stuff';
+import DeleteStuffs from '../contents/delete_stuff';
 
 export default function Navbar(props: any) {
   return (
@@ -18,7 +19,7 @@ export default function Navbar(props: any) {
           <HStack spacing={4} alignItems={'center'}>
             <AddStuffs dataCallback={ props.dataCallback }/>
             <Button colorScheme='green'>Edit Barang</Button>
-            <Button colorScheme='red'>Hapus Barang</Button>
+            <DeleteStuffs data={ props.data } setData={ props.setData }/>
           </HStack>
         </Flex>
       </Box>

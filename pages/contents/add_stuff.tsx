@@ -22,7 +22,7 @@ import { useColorModeValue } from '@chakra-ui/react';
 import { useState } from 'react';
 
 export default function AddStuffs(props: any) {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [namaBarang, setNamaBarang] = useState('');
   const [satuan, setSatuan] = useState('');
   const [kategori, setKategori] = useState('');

@@ -19,7 +19,7 @@ export default function Home() {
       setData(result);
     })
   }, []);
-
+  
   const dataCallback = useCallback(() => {
     fetch('api/daftar_barang', {
       method: 'GET',
@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <>
       <ChakraProvider>
-        <Headers dataCallback={ dataCallback }/>
+        <Headers dataCallback={ dataCallback } data={ data } setData={ setData }/>
         <Contents data={ data } setData={ setData }/>
       </ChakraProvider>
     </>

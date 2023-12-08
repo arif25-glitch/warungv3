@@ -4,6 +4,9 @@ import { TableContainer, Thead, Tr, Th, Td, Tbody, Table, Input, Box } from "@ch
 import { useCallback, useState } from "react";
 
 const TableList = (props: any) => {
+  if(!props.data) {
+    props.data = [];
+  }
   const filteredData = props.data.filter(props.filterFunction);
   return (
     <Tbody>

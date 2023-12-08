@@ -8,7 +8,7 @@ import { Box } from "@chakra-ui/react";
 export default function Contents(props: any) {
   return (
     <>
-      <Box p={ '5' }>
+      <Box p={ '3' }>
         <TableData data={ props.data } setData={ props.setData }/>
       </Box>
     </>

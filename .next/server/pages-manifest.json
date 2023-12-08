@@ -1,1 +1,6 @@
-{"/_app":"pages/_app.js","/_error":"pages/_error.js","/api/daftar_barang":"pages/api/daftar_barang.js","/api/cari_barang":"pages/api/cari_barang.js","/api/hapus_barang":"pages/api/hapus_barang.js","/api/tambah_barang":"pages/api/tambah_barang.js","/contents/delete_stuff":"pages/contents/delete_stuff.html","/contents/main":"pages/contents/main.html","/contents/add_stuff":"pages/contents/add_stuff.html","/contents/table/main":"pages/contents/table/main.html","/headers/main":"pages/headers/main.html","/headers/navbar":"pages/headers/navbar.html","/":"pages/index.html","/_document":"pages/_document.js","/404":"pages/404.html"}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js"
+}

@@ -13,7 +13,8 @@ const TableList = (props: any) => {
             <Tr key={index}>
               <Td>{nama_barang}</Td>
               <Td>{satuan}</Td>
-              <Td isNumeric>{harga}</Td>
+              <Td isNumeric>{ Number(harga.replace(/\D/g, ""))
+                  .toLocaleString(undefined, { maximumFractionDigits: 2 }) }</Td>
             </Tr>
           </>
         )

@@ -35,6 +35,15 @@ export default function AddStuffs(props: any) {
   const handleKategori = (event: any) => setKategori(event.target.value)
   const handleHarga = (event: any) => setHarga(event.target.value)
 
+  const toTitleCase = (str: string) => {
+    return str.replace(
+      /\w\S*/g,
+      function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
+  }
+
   const addFetch = () => {
     fetch('api/tambah_barang', {
       method: 'POST',
@@ -42,17 +51,11 @@ export default function AddStuffs(props: any) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        nama_barang: namaBarang,
-        satuan: satuan,
-        kategori: kategori,
-        harga: harga,
+        nama_barang: toTitleCase(namaBarang),
+        satuan: toTitleCase(satuan),
+        kategori: toTitleCase(kategori),
+        harga: toTitleCase(harga),
       }),
-    })
-    .then((result) => result.json())
-    .then(({ message='' }) => {
-      if (message === 'success') {
-        console.log('');
-      }
     });
   }
 

@@ -1,0 +1,16 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/api/cari_barang": "pages/api/cari_barang.js",
+  "/api/tambah_barang": "pages/api/tambah_barang.js",
+  "/contents/main": "pages/contents/main.js",
+  "/contents/table/main": "pages/contents/table/main.js",
+  "/api/daftar_barang": "pages/api/daftar_barang.js",
+  "/api/hapus_barang": "pages/api/hapus_barang.js",
+  "/headers/main": "pages/headers/main.js",
+  "/contents/delete_stuff": "pages/contents/delete_stuff.js",
+  "/headers/navbar": "pages/headers/navbar.js",
+  "/": "pages/index.js",
+  "/contents/add_stuff": "pages/contents/add_stuff.js",
+  "/_document": "pages/_document.js"
+}

@@ -2,5 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/": "pages/index.js",
+  "/api/tambah_barang": "pages/api/tambah_barang.js",
+  "/api/daftar_barang": "pages/api/daftar_barang.js",
+  "/api/hapus_barang": "pages/api/hapus_barang.js"
 }

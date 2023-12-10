@@ -11,6 +11,10 @@ const TableList = (props: any) => {
   const categoryFiltered = props.filterSelectedFunction(props.data);
   const filteredData = categoryFiltered.filter(props.filterFunction);
   
+  filteredData.sort((a: any, b: any) => {
+    return ('' + a.nama_barang).localeCompare(b.nama_barang);
+  });
+
   return (
     <Tbody>
       {filteredData.map(({ nama_barang = '', satuan = '', harga = '' }, index: number) => {
@@ -37,7 +41,7 @@ export default function TableData(props: any) {
 
   const filterFunction = useCallback(
     (item) => item.nama_barang.toLowerCase().includes(searchValue.toLowerCase()),
-    [searchValue]
+    [searchValue, props.data]
   );
 
   const filterSelectedFunction = useCallback(
@@ -53,7 +57,7 @@ export default function TableData(props: any) {
       .filter(element => typeof element !== 'undefined');
       return filteredCategory;
     }, 
-    [selectedValue]
+    [selectedValue, props.data]
   );
 
   useEffect(() => {
